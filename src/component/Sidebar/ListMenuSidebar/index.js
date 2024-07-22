@@ -1,15 +1,13 @@
 import React, { useState } from "react";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
-
 import { Box, Button, Collapse, Typography, IconButton } from "@mui/material";
-import AssessmentOutlinedIcon from "@mui/icons-material/AssessmentOutlined"; // Ganti dengan ikon yang sesuai
-import PackageIcon from "@mui/icons-material/LocalShipping"; // Ganti dengan ikon yang sesuai
-import TransactionIcon from "@mui/icons-material/Receipt"; // Ganti dengan ikon yang sesuai
-import OnGoingIcon from "@mui/icons-material/Autorenew"; // Ganti dengan ikon yang sesuai
-import HandshakeOutlinedIcon from "@mui/icons-material/HandshakeOutlined";
-import Router from "next/router";
+import AssessmentOutlinedIcon from "@mui/icons-material/AssessmentOutlined";
 import ExpandMoreIcon from "@mui/icons-material/KeyboardArrowLeft";
+import { useRouter } from "next/router";
+import Router from "next/router";
+import HandshakeOutlinedIcon from "@mui/icons-material/HandshakeOutlined";
+import CircleIcon from '@mui/icons-material/Circle';
 
 const itemsDashboardOnly = [
   { text: "Dashboard", icon: <AssessmentOutlinedIcon /> },
@@ -32,9 +30,9 @@ const itemTransaction = [
     text: "Transaction",
     icon: <AssessmentOutlinedIcon />,
     subItems: [
-      { text: "Package",},
-      { text: "Transaction",},
-      { text: "On Going", },
+      { text: "Package" },
+      { text: "Transaction" },
+      { text: "On Going" },
     ],
   },
 ];
@@ -68,17 +66,11 @@ const itemsSupplier = [
 const RouteToDashboard = () => {
   Router.push({
     pathname: "/dashboard",
-    // query: {
-    //   page: page,
-    //   limit: newLimit,
-    //   keyword: query,
-    // },
   });
 };
 
-const RouterProduct = (submenu) => {
-  console.log(submenu);
-  if (submenu === "SPAREPARTS") {
+const RouterProduct = (submenuText) => {
+  if (submenuText === "spareparts") {
     Router.push({
       pathname: "/spareparts",
     });
@@ -103,6 +95,10 @@ export default function ListMenuSidebar(props) {
   const handleSupplierTabClick = () => {
     setSupplierOpen(!supplierOpen);
   };
+
+  const router = useRouter();
+  const currentPath = router.pathname;
+
   return (
     <>
       <List>
@@ -208,6 +204,9 @@ export default function ListMenuSidebar(props) {
                           color: "white",
                           backgroundColor: "#3918D9",
                           boxShadow: "none",
+                          "& .circle-icon": {
+                            color: "white",
+                          },
                         },
                       }}
                     >
@@ -224,6 +223,16 @@ export default function ListMenuSidebar(props) {
                       >
                         {subItem.text.toUpperCase()}
                       </Typography>
+                      {currentPath === "/spareparts" && subItem.text === "spareparts" && (
+                        <CircleIcon
+                        className="circle-icon"
+                        sx={{
+                          color: "#3918D9",
+                          marginLeft: "auto",
+                          height: 10,
+                        }}
+                      />
+                      )}
                     </Button>
                   </ListItem>
                 ))}
@@ -309,7 +318,7 @@ export default function ListMenuSidebar(props) {
                           textTransform: "none",
                           fontWeight: 400,
                           fontSize: 14,
-                          ml:1
+                          ml: 1,
                         }}
                       >
                         {subItem.text.toUpperCase()}
@@ -393,7 +402,7 @@ export default function ListMenuSidebar(props) {
                       fontWeight: 600,
                     }}
                   >
-                    {item.text}
+                    {item.text.toUpperCase()}
                   </Typography>
                 </Box>
                 <ExpandMoreIcon
@@ -431,10 +440,12 @@ export default function ListMenuSidebar(props) {
                           flexGrow: 1,
                           textAlign: "left",
                           textTransform: "none",
-                          fontWeight: 600,
+                          fontWeight: 400,
+                          fontSize: 14,
+                          ml: 1,
                         }}
                       >
-                        {subItem.text}
+                        {subItem.text.toUpperCase()}
                       </Typography>
                     </Button>
                   </ListItem>
@@ -479,7 +490,7 @@ export default function ListMenuSidebar(props) {
                       fontWeight: 600,
                     }}
                   >
-                    {item.text}
+                    {item.text.toUpperCase()}
                   </Typography>
                 </Box>
                 <ExpandMoreIcon
@@ -517,10 +528,12 @@ export default function ListMenuSidebar(props) {
                           flexGrow: 1,
                           textAlign: "left",
                           textTransform: "none",
-                          fontWeight: 600,
+                          fontWeight: 400,
+                          fontSize: 14,
+                          ml: 1,
                         }}
                       >
-                        {subItem.text}
+                        {subItem.text.toUpperCase()}
                       </Typography>
                     </Button>
                   </ListItem>

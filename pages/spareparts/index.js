@@ -13,6 +13,7 @@ import {
   Typography,
 } from "@mui/material";
 import SendIcon from "@mui/icons-material/Send";
+import StickyHeadTableSpareparts from "@/src/component/Table/tableSpareparts";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -66,16 +67,21 @@ export default function Dashboard(props) {
               </Select>
             </FormControl>
           </Box>
-          <Button variant="outlined" startIcon={<SendIcon />}>
+          <Button
+            style={{ backgroundColor: "#3918D9" }}
+            variant="contained"
+            startIcon={<SendIcon />}
+          >
             Tambah Barang
           </Button>
-          <Button variant="outlined">
+          <Button style={{ backgroundColor: "#05C283" }} variant="contained">
             Export Excel
           </Button>
         </Stack>
-        <Stack direction="row" spacing={2} margin={1}>
-    
-        </Stack>
+
+        <Stack direction="row" spacing={2} margin={1}></Stack>
+
+        <StickyHeadTableSpareparts/>
       </Item>
     </>
   );
