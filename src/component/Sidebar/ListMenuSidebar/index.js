@@ -7,7 +7,7 @@ import ExpandMoreIcon from "@mui/icons-material/KeyboardArrowLeft";
 import { useRouter } from "next/router";
 import Router from "next/router";
 import HandshakeOutlinedIcon from "@mui/icons-material/HandshakeOutlined";
-import CircleIcon from '@mui/icons-material/Circle';
+import CircleIcon from "@mui/icons-material/Circle";
 
 const itemsDashboardOnly = [
   { text: "Dashboard", icon: <AssessmentOutlinedIcon /> },
@@ -72,7 +72,11 @@ const RouteToDashboard = () => {
 const RouterProduct = (submenuText) => {
   if (submenuText === "spareparts") {
     Router.push({
-      pathname: "/spareparts",
+      pathname: "/product/spareparts",
+    });
+  } else if (submenuText === "services") {
+    Router.push({
+      pathname: "/product/services",
     });
   }
 };
@@ -223,16 +227,19 @@ export default function ListMenuSidebar(props) {
                       >
                         {subItem.text.toUpperCase()}
                       </Typography>
-                      {currentPath === "/spareparts" && subItem.text === "spareparts" && (
+                      {(currentPath === "/product/spareparts" &&
+                        subItem.text === "spareparts") ||
+                      (currentPath === "/product/services" &&
+                        subItem.text === "services") ? (
                         <CircleIcon
-                        className="circle-icon"
-                        sx={{
-                          color: "#3918D9",
-                          marginLeft: "auto",
-                          height: 10,
-                        }}
-                      />
-                      )}
+                          className="circle-icon"
+                          sx={{
+                            color: "#3918D9",
+                            marginLeft: "auto",
+                            height: 10,
+                          }}
+                        />
+                      ) : null}
                     </Button>
                   </ListItem>
                 ))}

@@ -1,4 +1,5 @@
-import * as React from "react";
+import React, { useState } from "react";
+
 import {
   Box,
   Button,
@@ -14,6 +15,7 @@ import {
 } from "@mui/material";
 import SendIcon from "@mui/icons-material/Send";
 import StickyHeadTableSpareparts from "@/src/component/Table/tableSpareparts";
+import ModalTambahSpareparts from "@/src/component/Modal/modalTambahSpareparts";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -30,6 +32,11 @@ export default function Dashboard(props) {
   const handleChange = (event) => {
     setAge(event.target.value);
   };
+  const [open, setOpen] = useState(false);
+
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
   return (
     <>
       <Item sx={{ height: "100%" }}>
@@ -51,7 +58,11 @@ export default function Dashboard(props) {
           </Typography>
         </Stack>
         <Stack direction="row" spacing={2} margin={1}>
-          <TextField id="outlined-basic" label="Outlined" variant="outlined" />
+          <TextField
+            id="outlined-basic"
+            label="Input Text Here . . ."
+            variant="outlined"
+          />
           <Box sx={{ minWidth: 120 }}>
             <FormControl fullWidth>
               <InputLabel id="demo-simple-select-label">FILTER BY</InputLabel>
@@ -71,6 +82,7 @@ export default function Dashboard(props) {
             style={{ backgroundColor: "#3918D9" }}
             variant="contained"
             startIcon={<SendIcon />}
+            onClick={handleOpen}
           >
             Tambah Barang
           </Button>
@@ -81,8 +93,11 @@ export default function Dashboard(props) {
 
         <Stack direction="row" spacing={2} margin={1}></Stack>
 
-        <StickyHeadTableSpareparts/>
+        <StickyHeadTableSpareparts />
       </Item>
+
+      <ModalTambahSpareparts open={open} handleClose={handleClose} />
+
     </>
   );
 }
