@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import { Box, Button, Collapse, Typography, IconButton } from "@mui/material";
-import AssessmentOutlinedIcon from "@mui/icons-material/AssessmentOutlined";
-import ExpandMoreIcon from "@mui/icons-material/KeyboardArrowLeft";
+
 import { useRouter } from "next/router";
 import Router from "next/router";
 import HandshakeOutlinedIcon from "@mui/icons-material/HandshakeOutlined";
 import CircleIcon from "@mui/icons-material/Circle";
+import AssessmentOutlinedIcon from "@mui/icons-material/AssessmentOutlined";
+import ExpandMoreIcon from "@mui/icons-material/KeyboardArrowLeft";
 
 const itemsDashboardOnly = [
   { text: "Dashboard", icon: <AssessmentOutlinedIcon /> },
@@ -181,6 +182,7 @@ export default function ListMenuSidebar(props) {
                 </Box>
                 <ExpandMoreIcon
                   sx={{
+                    ml: 4.8,
                     transition: "transform 0.3s",
                     transform: productOpen ? "rotate(-90deg)" : "rotate(0deg)",
                   }}
