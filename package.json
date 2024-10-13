@@ -17,7 +17,7 @@
     "@mui/icons-material": "^5.15.2",
     "@mui/material": "^5.15.19",
     "framer-motion": "^10.16.5",
-    "next": "14.0.2",
+    "next": "14.2.14",
     "raf": "^3.4.1",
     "react": "^18",
     "react-dom": "^18",
@@ -25,6 +25,7 @@
     "react-howler": "^5.2.0",
     "react-icons": "^4.12.0",
     "react-switch": "^7.0.0",
+    "sandbox": "file:",
     "styled-components": "^6.1.12"
   },
   "devDependencies": {

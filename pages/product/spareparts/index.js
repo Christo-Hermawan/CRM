@@ -59,7 +59,7 @@ export default function Dashboard(props) {
         </Stack>
         <Stack direction="row" spacing={2} margin={1}>
           <TextField
-            id="outlined-basic"
+            id="inputSpareparts"
             label="Input Text Here . . ."
             variant="outlined"
           />

@@ -148,6 +148,7 @@ export default function ListMenuSidebar(props) {
           <React.Fragment key={item.text}>
             <ListItem disablePadding sx={{ ml: 2 }}>
               <Button
+                id="producttab"
                 variant="contained"
                 onClick={handleProductTabClick}
                 sx={{
