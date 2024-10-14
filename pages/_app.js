@@ -7,7 +7,7 @@ function MyApp({ Component, pageProps }) {
   const router = useRouter();
 
   // List of paths where you don't want to include the layout
-  const noLayoutPages = ['/login'];
+  const noLayoutPages = ['/', '/login'];
 
   return noLayoutPages.includes(router.pathname) ? (
     <Component {...pageProps} />

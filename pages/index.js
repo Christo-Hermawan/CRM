@@ -1,9 +1,8 @@
-import DashboardX from "./dashboard";
-
+import Login from "./login";
 const Dashboard = () => {
   return (
     <>
-    <DashboardX/>
+    <Login/>
     </>
   );
 };

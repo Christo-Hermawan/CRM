@@ -8,7 +8,7 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { Typography } from "@mui/material";
 
-export default function SimplePaper() {
+export default function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const router = useRouter(); // Inisialisasi router
@@ -17,7 +17,7 @@ export default function SimplePaper() {
     // Pemeriksaan kredensial sederhana (contoh hardcoded)
     if (username === "christo" && password === "admin") {
       // Redirect ke halaman home jika login berhasil
-      router.push("/");
+      router.push("/dashboard");
     } else {
       // Tambahkan logika untuk menangani kasus login gagal
       alert("Login failed. Please check your credentials.");
@@ -69,7 +69,7 @@ export default function SimplePaper() {
 
             {/* Box untuk memposisikan tombol ke pojok kanan */}
             <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
-              <Button variant="outlined" size="large" onClick={handleLogin}>
+              <Button id="loginbtn" variant="outlined" size="large" onClick={handleLogin}>
                 Login
               </Button>
             </Box>
