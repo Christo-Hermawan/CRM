@@ -1,11 +1,15 @@
-import Login from "./login";
-const Dashboard = () => {
+import Navbar from "@/src/component/Navbar";
+import MainContent from "./main";
+import MainPage from "./main";
+const main = () => {
   return (
     <>
-    <Login/>
+    <Navbar/>
+    <MainContent/>
+    
     </>
   );
 };
 
-export default Dashboard;
+export default main;
 

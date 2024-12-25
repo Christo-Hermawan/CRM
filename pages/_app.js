@@ -1,7 +1,8 @@
-// pages/_app.js
 import { useRouter } from 'next/router';
 import '../app/globals.css';
 import Layout from '@/src/Layout/layout';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();

@@ -1,80 +1,65 @@
-import * as React from "react";
-import CssBaseline from "@mui/material/CssBaseline";
-import MenuIcon from "@mui/icons-material/Menu";
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import {
-  AppBar,
-  Box,
-  Button,
-  Grid,
-  IconButton,
-  Stack,
-  Toolbar,
-  Typography,
-} from "@mui/material";
+import React from "react";
+import { AppBar, Box, Toolbar, Button, Typography } from "@mui/material";
+import { useRouter } from "next/router"; // Import useRouter
 
-const drawerWidth = 240;
+const App = () => {
+  const router = useRouter(); // Inisialisasi useRouter
 
-function Navbar(props) {
+  // Fungsi untuk menangani klik dan mengarahkan ke halaman lain
+  const handleNavigation = (item) => {
+    // Jika item adalah "About", arahkan ke root ("/")
+    if (item.toLowerCase() === "about") {
+      router.push("/");
+    } else {
+      router.push(`/${item.toLowerCase()}`); // Navigasi ke halaman lainnya
+    }
+  };
+
   return (
     <>
+      {/* Header Navigation */}
       <AppBar
-        position="fixed"
+        position="static"
         sx={{
-          width: { sm: `calc(100% - ${drawerWidth}px)` },
-          height: 70,
-          ml: { sm: `${drawerWidth}px` },
-          backgroundColor: "#FFFFFF",
-          color: "#000000",
-          boxShadow: "none", // Remove box shadow
-          borderBottom: "none", // Remove border bottom
+          backgroundColor: "white",
+          boxShadow: "none",
+          padding: "0 2rem",
+          marginBottom: "0px",
         }}
       >
-        <Stack
-          direction="row"
-          spacing={1}
-          justifyContent="space-between"
-          margin={1}
-          mt={1}
-        >
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            edge="start"
-            sx={{ mr: 2, display: { sm: "none" } }}
-          >
-            <MenuIcon />
-          </IconButton>
+        <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
           <Typography
-            fontSize={"24px"}
-            noWrap
-            component="div"
             sx={{
-              color: "#4C34C2",
-              fontWeight: "bold",
+              color: "#333", // Lebih lembut dari hitam untuk kesan elegan
+              fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif', // Menambahkan font yang lebih estetik
+              fontSize: "40px", // Ukuran font lebih besar untuk lebih menonjol
+              fontWeight: "bold", // Menebalkan teks
+              textTransform: "uppercase", // Mengubah teks menjadi kapital untuk kesan profesional
+              letterSpacing: "2px", // Memberi jarak antar huruf agar lebih jelas
+              textAlign: "center", // Menjaga teks berada di tengah
+              textShadow: "2px 2px 4px rgba(0, 0, 0, 0.2)", // Memberi efek bayangan pada teks untuk memberi kedalaman
+              marginBottom: "1rem", // Memberi ruang di bawah teks
             }}
           >
-            Customer Relationship Management
+            Portfolio
           </Typography>
-          <IconButton style={{}}>
-            <AccountCircleIcon fontSize="large" sx={{ mr: 1 }} />
-            <Stack>
-              <Typography
-                sx={{ fontWeight: 600, fontSize: "14px", color: "#4C34C2" }}
+
+          <Box>
+            {["About", "Experience", "Projects"].map((item) => (
+              <Button
+                key={item}
+                sx={{ color: "#000", marginLeft: "1rem", fontSize: '18px' }}
+                onClick={() => handleNavigation(item)} // Navigasi ke halaman masing-masing
               >
-                Username
-              </Typography>
-              <Typography
-                sx={{ fontWeight: 400, fontSize: "10px", color: "#4C34C2" }}
-              >
-                role
-              </Typography>
-            </Stack>
-          </IconButton>
-        </Stack>
+                {item}
+              </Button>
+            ))}
+          </Box>
+        </Toolbar>
       </AppBar>
+
     </>
   );
-}
+};
 
-export default Navbar;
+export default App;
