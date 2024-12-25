@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Box, Button, Grid, Container, Typography } from "@mui/material";
+import { Box, Button, Grid, Container, Typography, Avatar } from "@mui/material";
 import { useRouter } from "next/router";
 
 export default function MainContent() {
@@ -89,14 +89,13 @@ export default function MainContent() {
       <Box
         sx={{
           position: "absolute",
-          bottom: 0,
-          left: "55%",
-          transform: "translateX(-120%)", // Posisikan gambar di tengah
-          zIndex: 0, // Agar gambar berada di belakang konten
-          animation: "slideUpImage 1s ease-out", // Apply slide up animation to the image
+          top: "10px",
+          left: "40px"
+
+
         }}
       >
-        <img
+        <Avatar
           src="/John-doe.png" // Path relatif dari folder public
           alt="Avatar"
           style={{
@@ -106,6 +105,7 @@ export default function MainContent() {
           }}
         />
       </Box>
+
       <Box
         sx={{
           position: "absolute",
@@ -114,7 +114,7 @@ export default function MainContent() {
           backgroundColor: "#FFD700", // Warna lingkaran (disesuaikan)
           borderRadius: "100%",
           top: "70px",
-          left: "35px",
+          left: "15px",
           zIndex: -1, // Pastikan lingkaran berada di belakang gambar
         }}
       ></Box>

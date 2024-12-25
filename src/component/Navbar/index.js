@@ -14,7 +14,9 @@ const App = () => {
       router.push(`/${item.toLowerCase()}`); // Navigasi ke halaman lainnya
     }
   };
-
+  const handleNavigate = () => {
+    router.push("/"); // Arahkan ke halaman /projects
+  };
   return (
     <>
       {/* Header Navigation */}
@@ -28,7 +30,8 @@ const App = () => {
         }}
       >
         <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
-          <Typography
+          <Button
+            onClick={handleNavigate} // Tambahkan event handler untuk navigasi
             sx={{
               color: "#333", // Lebih lembut dari hitam untuk kesan elegan
               fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif', // Menambahkan font yang lebih estetik
@@ -42,7 +45,7 @@ const App = () => {
             }}
           >
             Portfolio
-          </Typography>
+          </Button>
 
           <Box>
             {["About", "Experience", "Projects"].map((item) => (
