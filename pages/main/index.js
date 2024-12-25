@@ -51,7 +51,7 @@ export default function MainContent() {
             {displayedText}
           </Typography>
           <Typography variant="h4" sx={{ color: "#555", marginBottom: "0rem" }}>
-            I'm John Doe
+            I&apos;m John Doe
           </Typography>
           <Typography variant="h5" sx={{ color: "#555", marginBottom: "4rem" }}>
             an Experienced Website Developer
